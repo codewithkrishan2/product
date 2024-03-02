@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kksg.entity.Product;
+import com.kksg.dto.ProductDto;
 import com.kksg.service.ProductService;
 
 @RestController
@@ -20,15 +20,9 @@ public class ProductController {
 	private ProductService productService;
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Product> gettingOneProductById(@PathVariable int id) {
-		
-		
-		Product product = productService.getOneProduct(id);
-		
-		return new ResponseEntity<Product>(product, HttpStatus.OK);
-		
-		
-		
+	public ResponseEntity<ProductDto> gettingOneProductById(@PathVariable int id) {	
+		ProductDto product = productService.getOneProduct(id);
+		return new ResponseEntity<ProductDto>(product, HttpStatus.OK);
 	}
 	
 
@@ -36,5 +30,10 @@ public class ProductController {
 	public void savingOneProduct() {
 			
 	}
+	
+	//update
+	
+	
+	//delete
 	
 }
